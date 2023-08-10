@@ -24,6 +24,22 @@ class FlightChecker:
 
         return codes
 
+    def get_names(self, codes):
+        names = []
+        for code in codes:
+            parameters = {
+                'term': code,
+            }
+            try:
+                name = requests.get(self.IATA_URL, headers=self.header, params=parameters).json()['locations'][0]['city'][
+                    'name']
+            except:
+                name = requests.get(self.IATA_URL, headers=self.header, params=parameters).json()['locations'][0][
+                    'name']
+            names.append(name)
+
+        return names
+
     def check_flight(self, user):
         flights = []
         for i in range(len(user['fly_to'])):

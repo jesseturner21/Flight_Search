@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flight Checker</title>
+    <link href="{{url_for('static',filename='css/style.css')}}?v=11" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="title"><h1>Flight Checker</h1></div>
+    <form method="POST" action="/edit-add">
+      <div class="container">
+        <div class="input-container">
+          <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter email here" value={{user['email']}} /><br /><br />
+        </div>
+        <div>
+          <label for="fly_from">From:</label>
+          <input type="text" id="fly_from" name="fly_from" placeholder="(ex. Phoenix)" value={{user['fly_from']}} /><br /><br />
+          <label for="fly_to">To(list):</label>
+          <input type="text" id="fly_to" name="fly_to" style="width:250px"placeholder="(ex. Orlando,Las Angeles,Berlin)" value="{{ user['fly_to'] }}" /><br /><br />
+        </div>
+        <div>
+          <label for="price">Prices(list):</label>
+          <input type="text" id="price" name="price" placeholder="(ex. 250,320,500)" value={{user['price_to']}} /><br /><br />
+        </div>
+        <div>
+          <label for="date_from">Start of departure:</label>
+          <input type="date" id="date_from" name="date_from" value={{user['date_from']}} /><br /><br />
+          <label for="date_to">End of departure:</label>
+          <input type="date" id="date_to" name="date_to" value={{user['date_to']}} /><br /><br />
+
+          <label for="date_from">Start of return:</label>
+          <input type="date" id="return_from" name="return_from" value={{user['return_from']}} /><br /><br />
+          <label for="date_to">End of return:</label>
+          <input type="date" id="return_to" name="return_to" value={{user['return_to']}} /><br /><br />
+        </div>
+        </div>
+
+        <div><input type="submit" value="Submit" id="button" /></div>
+      </div>
+    </form>
+  </body>
+</html>

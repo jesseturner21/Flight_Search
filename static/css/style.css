@@ -16,18 +16,21 @@ body {
   fw: 300;
   text-transform: uppercase;
   padding: 1px 100px;
+  font-style: italic;
 }
 .container {
   background-color: var(--color-three);
   padding: 20px;
-
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 }
-
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
 input {
   font-size: large;
   background-color: var(--color-one);
@@ -36,6 +39,9 @@ input {
   border: none;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+input::placeholder {
+  opacity: 0.5;
+}
 #button {
   background-color: var(--color-four);
   border-radius: 10px;
@@ -43,6 +49,38 @@ input {
   color: var(--color-one);
   padding: 10px;
   font-size: x-large;
+  font-weight: 600;
+}
+#home {
+  justify-content: start;
+}
+.home-box {
+  gap: 30px;
+  margin-top: 100px;
+}
+.secondary {
+  display: flex;
+  gap: 100px;
+}
+#add {
+  background-color: var(--color-four);
+  color: var(--color-one);
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 100px;
+  font-size: x-large;
+  font-weight: 600;
+}
+#edit,
+#delete {
+  background-color: var(--color-five);
+  color: var(--color-one);
+  border: none;
+  border-radius: 5px;
+  width: 160px;
+  height: 50px;
+  font-size: large;
   font-weight: 600;
 }
 :root {
