@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>Flight Checker</title>
-    <link href="{{url_for('static', filename='css/style.css')}}?v=3" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static', filename='css/style.css')}}?v=11" rel="stylesheet" type="text/css" />
   </head>
   <body style="justify-content: flex-start">
-    <div class="title"><h1>Edit</h1></div>
-    <form method="POST" action="/edit">
+    <div class="title"><h1>Delete</h1></div>
+    <form method="POST" action="/delete">
       <div class="container">
         <div class="input-container">
           <div>
@@ -23,11 +23,18 @@
         </div>
 
         <div class="bottom-buttons">
-
   <a class="back" onclick="window.location.href='{{url_for('home')}}'">Back</a>
-          <input type="submit" value="Get User" id="button" />
+          <input type="submit" value="Delete" id="button" onclick="checker()"/>
         </div>
       </div>
     </form>
   </body>
+<script>
+  function checker(){
+    var result = confirm('Are you sure you would like to delete this user?')
+    if (result == false){
+       event.preventDefault();
+    }
+  }
+</script>
 </html>

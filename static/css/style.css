@@ -46,10 +46,15 @@ input::placeholder {
   background-color: var(--color-four);
   border-radius: 10px;
   border: none;
-  color: var(--color-one);
-  padding: 10px;
+  color: var(--color-one);  padding: 10px;
   font-size: x-large;
   font-weight: 600;
+  grid-column: 4/8;
+  grid-row: 1/3;
+  cursor: pointer;
+}
+#button:hover {
+  background-color: var(--color-five);
 }
 #home {
   justify-content: start;
@@ -83,6 +88,28 @@ input::placeholder {
   font-size: large;
   font-weight: 600;
 }
+.bottom-buttons {
+  margin-right: 50px;
+  display: grid;
+  grid-template-columns: 1.5em 1.5em 1.5em 1.5em 1.5em 1.5em 1.5em 1.5em 1.5em;
+  grid-template-rows: 1em 1em;
+}
+.back {
+  background-color: var(--color-three);
+  border: none;
+  border-radius: 5px;
+  padding-left: 4px;
+  padding-right: 40px;
+  color: var(--color-two);
+  font-size: large;
+  font-weight: 500;
+  grid-row: 2/3;
+  cursor: pointer;
+}
+.back:hover {
+  background-color: #ffffff;
+}
+
 :root {
   --color-one: #ffffff;
   --color-two: #2ec4b6;

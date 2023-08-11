@@ -26,3 +26,6 @@ class Database:
         self.supabase.table('users').update(
             {'email': email, "fly_from": fly_from, "fly_to": fly_to, "date_from": date_from, "date_to": date_to,
              "return_from ": return_from, "return_to": return_to, "price_to": price_to}).eq('email', email).execute()
+
+    def delete_user(self, email):
+        self.supabase.table('users').delete().eq('email', email).execute()

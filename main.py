@@ -75,6 +75,16 @@ def edit_add():
         return render_template("submitted.html")
     return render_template('edit-add.html')
 
+@app.route('/delete', methods=['GET', 'POST'])
+def delete():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        print(email)
+        db.delete_user(email=email)
+        return render_template('home.html')
+    return render_template('delete.html')
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
+#   TODO: WHY IS IT CACHING , THE CSS IS NOT CHANGING
