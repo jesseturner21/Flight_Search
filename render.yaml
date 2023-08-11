@@ -1,0 +1,2 @@
+environment:
+  PIP_VERSION: "23.2.1"  # Replace with the version you want
