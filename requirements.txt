@@ -1,4 +1,4 @@
 
 gunicorn==21.2.0
 Flask==2.2.5
-supabase==1.0.4
+supabase==0.7.1
