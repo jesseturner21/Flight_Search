@@ -27,7 +27,6 @@ PASSWORD = os.environ.get('EMAIL_PASSWORD')
 with smtplib.SMTP('smtp.gmail.com') as connection:
     connection.starttls()
     connection.login(user=EMAIL, password=PASSWORD)
-    print('emailing')
     for i in range(len(all_users)):
         # if the person has flights create and send message
         if all_flights[i]:

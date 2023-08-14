@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from database import Database
 from flight_checker import FlightChecker
+from Email import Email
 
 # -------------------Flask------------------#
 app = Flask(__name__, static_url_path='/static')
@@ -8,10 +9,14 @@ app = Flask(__name__, static_url_path='/static')
 # -------------------CONTROL------------------#
 fc = FlightChecker()
 db = Database()
+em = Email()
+
 
 @app.route('/')
 def home():
     return render_template('home.html')
+
+
 @app.route('/add', methods=['GET', 'POST'])
 def add():
     print('in add')
@@ -31,7 +36,10 @@ def add():
         to_code = fc.get_codes(fly_to)
         db.add_user(email=email, fly_from=from_code[0], fly_to=to_code, date_from=date_from,
                     date_to=date_to, return_from=return_from, return_to=return_to, price_to=price_to)
-
+        body = "User information: \nEmail: " + email + " \nFly from: " + from_code[
+            0] + " \nFly to: " + request.form.get('fly_to') + \
+               "\nFor: " + request.form.get('price') + " \nDepart : " + date_from + " - " + date_to + "\nReturn : " + return_from + " - " + return_to
+        em.send_email(receiver=email, subject="FLIGHT CHECKER CONFIRMATION", body=body)
         return render_template("submitted.html")
 
     return render_template('add.html')
@@ -71,9 +79,13 @@ def edit_add():
         # to update
         db.update_user(email=email, fly_from=from_code[0], fly_to=to_code, date_from=date_from,
                        date_to=date_to, return_from=return_from, return_to=return_to, price_to=price_to)
-
+        body = "User information: \nEmail: " + email + " \nFly from: " + from_code[
+            0] + " \nFly to: " + request.form.get('fly_to') + \
+               "\nFor: " + request.form.get('price') + " \nDepart : " + date_from + " - " + date_to + "\nReturn : " + return_from + " - " + return_to
+        em.send_email(receiver=email, subject="FLIGHT CHECKER CONFIRMATION", body=body)
         return render_template("submitted.html")
     return render_template('edit-add.html')
+
 
 @app.route('/delete', methods=['GET', 'POST'])
 def delete():
@@ -87,4 +99,3 @@ def delete():
 
 if __name__ == '__main__':
     app.run(debug=False)
-#   TODO: WHY IS IT CACHING , THE CSS IS NOT CHANGING

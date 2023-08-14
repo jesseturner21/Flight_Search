@@ -18,6 +18,11 @@ body {
   padding: 1px 100px;
   font-style: italic;
 }
+.secondary {
+  color: var(--color-one);
+  fw: 300;
+  text-align: center;
+}
 .container {
   background-color: var(--color-three);
   padding: 20px;
@@ -46,7 +51,8 @@ input::placeholder {
   background-color: var(--color-four);
   border-radius: 10px;
   border: none;
-  color: var(--color-one);  padding: 10px;
+  color: var(--color-one);
+  padding: 10px;
   font-size: x-large;
   font-weight: 600;
   grid-column: 4/8;
@@ -109,7 +115,16 @@ input::placeholder {
 .back:hover {
   background-color: #ffffff;
 }
-
+.home-button {
+  background-color: var(--color-three);
+  color: var(--color-two);
+  padding: 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.home-button:hover {
+  background-color: var(--color-one);
+}
 :root {
   --color-one: #ffffff;
   --color-two: #2ec4b6;
