@@ -31,8 +31,9 @@ class FlightChecker:
                 'term': code,
             }
             try:
-                name = requests.get(self.IATA_URL, headers=self.header, params=parameters).json()['locations'][0]['city'][
-                    'name']
+                name = \
+                    requests.get(self.IATA_URL, headers=self.header, params=parameters).json()['locations'][0]['city'][
+                        'name']
             except:
                 name = requests.get(self.IATA_URL, headers=self.header, params=parameters).json()['locations'][0][
                     'name']
@@ -54,13 +55,15 @@ class FlightChecker:
                 'curr': 'USD',
             }
             response = requests.get(self.SEARCH_URL, headers=self.header, params=parameters).json()
-
-            if len(response['data']) > 0:
-                flight_dict = {
-                    'cityFrom': response['data'][0]['cityFrom'],
-                    'cityTo': response['data'][0]['cityTo'],
-                    'price': response['data'][0]['price'],
-                }
-                flights.append(flight_dict)
+            try:
+                if len(response['data']) > 0:
+                    flight_dict = {
+                        'cityFrom': response['data'][0]['cityFrom'],
+                        'cityTo': response['data'][0]['cityTo'],
+                        'price': response['data'][0]['price'],
+                    }
+                    flights.append(flight_dict)
+            except:
+                flights = flights
 
         return flights

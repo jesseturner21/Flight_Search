@@ -13,9 +13,7 @@ fc = FlightChecker()
 all_flights = []
 for user in all_users:
     user_account = db.get_user(user['email'])
-    print(user_account)
     flights = fc.check_flight(user=user_account)
-    print(flights)
     all_flights.append(flights)
 
 #
@@ -32,7 +30,6 @@ with smtplib.SMTP('smtp.gmail.com') as connection:
         if all_flights[i]:
             email_message = 'Subject:FLIGHT DEAL\n\n '
             for j in range(len(all_flights[i])):
-                print(all_users[i])
                 email_message += all_flights[i][j]['cityFrom'] + ' -> ' + all_flights[i][j]['cityTo'] + ' for $' + str(all_flights[i][j]['price']) + '\n'
             connection.sendmail(from_addr=EMAIL, to_addrs=all_users[i]['email'], msg=email_message)
 

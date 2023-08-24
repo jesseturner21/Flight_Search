@@ -58,9 +58,12 @@ input::placeholder {
   grid-column: 4/8;
   grid-row: 1/3;
   cursor: pointer;
+
+  transition:0.3s;
 }
 #button:hover {
   background-color: var(--color-five);
+  transform: scale(110%) rotate(-2deg);
 }
 #home {
   justify-content: start;
@@ -72,6 +75,12 @@ input::placeholder {
 .secondary {
   display: flex;
   gap: 100px;
+}
+buttton{
+  transition:0.3s;
+}
+button:hover{
+  transform: scale(110%) rotate(-2deg);
 }
 #add {
   background-color: var(--color-four);
@@ -114,6 +123,7 @@ input::placeholder {
 }
 .back:hover {
   background-color: #ffffff;
+  transform: scale(110%) rotate(-2deg);
 }
 .home-button {
   background-color: var(--color-three);
@@ -121,9 +131,11 @@ input::placeholder {
   padding: 10px;
   border-radius: 5px;
   text-transform: uppercase;
+  transition:0.3s;
 }
 .home-button:hover {
   background-color: var(--color-one);
+  transform: scale(110%) rotate(-2deg);
 }
 :root {
   --color-one: #ffffff;
